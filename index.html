@@ -531,16 +531,19 @@
         }
 
         if (correto) {
-            const unlock = `arquivo${enigmaid + 1}`;
-            const menubtn = document.querySelector(`.arquivo-btn[data-arquivo="${unlock}"]`);
-            if (menubtn) menubtn.style.display = 'block';
+    const unlock = enigmaid === 8
+        ? 'arquivo9'
+        : `arquivo${enigmaid + 2}`;
+    const menubtn = document.querySelector(`.arquivo-btn[data-arquivo="${unlock}"]`);
+    if (menubtn) menubtn.style.display = 'block';
 
-            const noiseelement = document.querySelector('.noise');
-            noiseelement.classList.add('fade-animation');
-            setTimeout(() => {
-                noiseelement.classList.remove('fade-animation');
-            }, 5000);
-        }
+    const noiseelement = document.querySelector('.noise');
+    noiseelement.classList.add('fade-animation');
+    setTimeout(() => {
+        noiseelement.classList.remove('fade-animation');
+    }, 5000);
+}
+
     });
 });
 
