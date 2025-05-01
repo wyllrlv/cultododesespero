@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <title>OBCE - Arquivo</title>
+
+
+
+    <style>
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* centraliza horizontalmente */
+            align-items: center;     /* centraliza verticalmente */
+            background-color: black; /* opcional: pra ficar bonito */
+        }
+
+        .noise{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 3%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        @keyframes fadeeffect {
+            0%, 100% {
+                opacity: 3%;
+            }
+            50% {
+                opacity: 45%;
+            }
+
+        }
+
+        .fade-animation {
+            animation: fadeeffect 5s linear;
+        }
+        
+        #tela{
+            position: relative;
+            width: 1920px;
+            height: 800px;
+            background-color: #553f66;
+            overflow: hidden;
+        }
+
+        #scanlines, #bezel{
+            z-index: 3;
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        #scanlines{
+            opacity: 85%;
+        }
+
+
+
+        .texto {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 724px;
+            overflow-y: auto;
+            padding: 10px 20px 10px 10px;
+            margin-top: 10px;
+        }
+
+        .enigmatexto{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: auto;
+            margin-top: 10vh;
+            padding: 100px;
+            padding: 0;
+        }
+
+
+        .texto::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .texto::-webkit-scrollbar-thumb {
+            background-color: #fd57ff;
+            border-radius: 4px;
+        }
+
+        .texto::-webkit-scrollbar-track {
+            background-color: none;
+        }
+
+        .textosub:hover{
+        background-color: transparent !important;
+        }
+
+        #content{
+            font-family: VT323;
+            padding: 60px;
+            padding-top: 20px;
+            padding-bottom: 0px;
+            padding-bottom: 50px !important;
+            margin-left: 10px;
+            color: #fd57ff;
+            font-size: 20px;
+            text-shadow: 
+            1px 1px 2px #070107,
+            0 0 10px #fd57ff,
+            0 0 20px #fd57ff,
+            0 0 40px #a100c1,
+            0 0 80px #a100c1;
+            z-index: 1;
+        
+        }
+
+
+
+        #teste{
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 0;
+            border: 0;
+        }
+
+        h1{
+            margin: 0;
+        }
+
+        .archiveimages{
+            width: 300px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(0%) contrast(120%) brightness(200%) saturate(120%) drop-shadow(0 0 30px #a100c1);
+            mix-blend-mode: screen;
+            border-radius: 0px;
+            image-rendering: pixelated; 
+        }
+
+        .archivevideos{
+            width: 800px;
+            height: auto;
+
+        }
+
+        #arquivo1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+        }
+
+        #simbolo{
+            padding-top: 40px;
+            height: 150px;
+            width: 150px;
+            filter:
+            drop-shadow(1px 1px 2px #070107)
+            drop-shadow(0 0 10px #fd57ff)
+            drop-shadow(0 0 20px #fd57ff)
+            drop-shadow(0 0 40px #a100c1)
+            drop-shadow(0 0 80px #a100c1);
+            pointer-events: none;
+        }
+
+        .subcontent{
+            color: #ffffff;
+            transition: 0.5s ease;
+            margin-top: 1px;
+            margin-bottom: 10px;
+        }
+
+        .subcontent:hover{
+            background-color: #2aa1b3;
+        }
+
+        .btn-voltar{
+            margin-top: 10px;
+        }
+
+        .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+            supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        .enigmaimages2{
+            width: 850px !important;
+            height: auto !important;
+            filter:
+            drop-shadow(1px 1px 10px #070107)
+            drop-shadow(0 0 10px #fd57ff)
+            drop-shadow(0 0 10px #fd57ff)
+            drop-shadow(0 0 20px #a100c1)
+            drop-shadow(0 0 40px #a100c1);
+            padding: 25px;
+            overflow: hid;
+        }
+
+        .arquivo2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+    </style>
+
+</head>
+    
+<body>
+
+    <div id="tela">
+        <img src="https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif" class="noise noselect">
+        <img src="imgs/scanlines.png" id="scanlines" class="noselect">
+        <img src="imgs/bezel.png" id="bezel" class="noselect">
+
+        <div id="content">
+            
+
+            <section class="tela" id="inicio" style="display:block">
+                <img src="imgs/Desespero.png" id="simbolo" class="noselect">
+
+                <h1>
+                    20/04/2025
+                </h1>
+
+                <div id="teste">
+                    <h1 class="text">
+                    <span class="auto-type"></span>
+                    </h1>
+                </div>
+                
+                <section>
+
+                    <h3 class="subcontent" id="arquivobtn">> Arquivos</h3>
+
+                    <div id="arquivomenu" style="display:none;">
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo1">> Beautiful Sky</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo2">> Traição</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo3" style="display:none;"> > Orgulho</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo4" style="display:none;"> > Confiança</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo5" style="display:none;"> > Confusão</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo6" style="display:none;"> > Tempo</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo7" style="display:none;"> > Destino</h3>
+                        <h3 class="subcontent arquivo-btn" data-arquivo="arquivo8" style="display:block;"> > ???</h3>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <section class="texto" id="arquivo1" style="display: none;">
+
+                <div style="margin-bottom: 10px">
+
+                    <img src="imgs/incident.jpg" class="archiveimages">
+
+                </div>
+
+                <h3 class="subcontent textosub" style="margin-left: 15px">
+
+                    14/05/2024 - A beautiful Sky<br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor scelerisque ligula in sodales. Maecenas vitae nunc magna. Cras facilisis posuere consequat. Phasellus gravida eleifend nibh, et aliquam dolor facilisis porttitor. Etiam ut neque nec dui finibus fringilla. Integer commodo enim a est semper viverra. Donec efficitur lobortis quam congue mollis. Nam porta pellentesque orci quis pretium. Quisque posuere pulvinar velit. Ut a nulla metus. Fusce vel porta lorem. Donec purus justo, interdum a dui et, rutrum venenatis elit.
+
+                    Suspendisse posuere id arcu sit amet rutrum. Phasellus ac imperdiet turpis. Duis vel purus finibus, eleifend arcu ut, consectetur lectus. Quisque a massa eget enim placerat eleifend vel id magna. Morbi ultricies accumsan sapien et tempus. Curabitur vitae viverra ante. Integer at volutpat odio. Sed eu rutrum sapien, a eleifend massa. Nulla bibendum enim quis pellentesque finibus. Donec dolor nisi, volutpat vitae sem ut, efficitur consectetur diam.
+                    
+                </h3>
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+        <!--Arquivo 2 Traição - I wanna be 2:32-->
+            
+            <section class="texto" id="arquivo2" style="display: none;">
+
+                <div class="enigmatexto">
+
+                    <img src="imgs/enigmas/traicao.png" class="enigmaimages2">
+
+                    <!-- <h3 class="subcontent textosub" style="padding-top: 10px;">
+                        - .-. - - - .- .. -.-. .- - - - - - - - --- --..-- / . ..- / - .. - - -. .... .- / - ..- -.. --- - - - - .- ... -.. -.-. -..- - - - - / -- .- - - - ... -.. - - - - - - - ... / .--. . .-. -.. - - - - - .. / .- .-.. --. ..- . -- / - - - - - - - - - - .--. --- .-. / --. .- -. . . .- -.. .- ... . .-- .- -..- -.-. --.. .- -. -.-. .. .- / -.. . / .- .-.. --. ..- . - - - - - - -- / --.- ..- . / -.-. --- -. - - - - - - - ... .. -.. . .-. - - - . .- .-- . .-- --.- . - - - - - . .. / -- . ..- / .. .-. -- .- --- .-.-.- . ... ... .- / --- .-. --. - - - - .- ... -.. - - - .- -. .. --.. - - - - .- -.-. .- - - - - - - --- / -- . / -.. . ..- / . ... .--. . .-. .- -. - - - --.. -..- -.-. --.. -..- - - - - - .- ... / .. -. - . .-. -. . --..-- / -- - - - - - - .- ... / .--. . .-. - - - - - --.- .-- . .-- --.- .-. - - - - - -.-. . - - - - - - -... .. / --.- ..- . / . - - - - ... - - - - - - .- ... -.. ... .- -.. - - - .--. . .-. - - - - --.- .-- . --.- .-- . --.- - - - - - - .- -. -.-. - - - - .-- . --.- . .-- --.- - - .- ... / - - - - - -. - - - - - - .- --- / . / -. --- / --- / ... .. --. -. - - - - -..- .- -.. ... ..-. .- - - - .. ..-. .. -.-. .- - - - -.. --- / -.. --- / . / -.. --- / --- - - - - - - -... -.-. . / .--. .- .-. .- .. - - - - - - ... .- . .-. .-- . - - - - ... --- - - - - - --..-- -- - - - - - - .- ... / --- / --- .-. --. ..- - - - - .-.. .... --- --..-- .--. --- - - - -.. . .- - - - - . --.- .-- . .-- --.- . --.- - - - - - - - . ... . .-.                    </h3> -->
+
+                    <!-- <video controls src="/imgs/enigma1.mp4" class="archiveimages archivevideos" autoplay muted loop></video> -->
+                </div>
+
+                <input type="text" class="resposta" data-enigma="1">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+            <!--Arquivo 3 Orgulho  - Pais e filhos 5:08 -->
+
+            <section class="texto" id="arquivo3" style="display: none;">
+
+                <div class="enigmatexto">
+
+                    <img src="imgs/enigmas/orgulho.png" class="enigmaimages2">
+
+                </div>
+
+                <input type="text" class="resposta" data-enigma="2">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+            
+            <!--Arquivo 4 Confianca the red means i love you 3:53-->
+
+            <section class="texto" id="arquivo4" style="display: none;">
+
+                <div class="enigmatexto">
+
+                    <img src="imgs/enigmas/confianca.png" class="enigmaimages2">
+
+                </div>
+
+                <input type="text" class="resposta" data-enigma="3">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+                        
+            <!--Arquivo 5 Confusao The water is fine 4:00-->
+
+            <section class="texto" id="arquivo5" style="display: none;">
+
+                <div class="enigmatexto">
+
+                    <img src="imgs/enigmas/confusao.png" class="enigmaimages2">
+
+                </div>
+
+                <input type="text" class="resposta" data-enigma="4">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+            <!--Arquivo 6 Tempo Perdido 5:02-->
+
+            <section class="texto" id="arquivo6" style="display: none;">
+
+                <div class="enigmatexto">
+
+                    <img src="imgs/enigmas/tempo.png" class="enigmaimages2">
+
+                </div>
+
+                <input type="text" class="resposta" data-enigma="5">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+            
+            <!--Arquivo 7 Confusao The water is fine 3:13-->
+
+            <section class="texto" id="arquivo7" style="display: none;">
+
+                <div class="enigmatexto">
+
+                    <img src="imgs/enigmas/destino.png" class="enigmaimages2">
+
+                </div>
+
+                <input type="text" class="resposta" data-enigma="6">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+             <!--Arquivo 8 Confusao The water is fine 3:13-->
+
+             
+            <section class="texto" id="arquivo8" style="display: none; align-items: center; justify-content: center;">
+
+                <div class="enigmatexto">
+
+                    <h1 class="subcontent textosub">Quem está com você?</h1>
+
+                </div>
+
+                <input type="text" class="resposta" data-enigma="8">
+                <button class="verificar">Enviar</button>
+
+                <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+
+        //autotype
+
+        var typed = new Typed(".auto-type",{
+            strings : [" Bem vinda, Virús.", "Bem vinda, Anfitriã."],
+            typeSpeed: 125,
+            backSpeed: 125,
+            
+        })
+
+        //menu
+
+        const arquivobtn = document.getElementById("arquivobtn");
+        const arquivomenu = document.getElementById("arquivomenu");
+
+        let aberto = false;
+
+        arquivobtn.addEventListener("click", () =>{
+        aberto = !aberto;
+        arquivomenu.style.display = aberto ? "block" : "none";
+        arquivobtn.innerText = aberto ? "> Voltar" : "> Arquivos";
+                
+        });
+
+        const botoesArquivos = document.querySelectorAll(".arquivo-btn");
+        const secoesArquivos = document.querySelectorAll(".texto");
+
+        botoesArquivos.forEach(botao => {
+            botao.addEventListener("click", () => {
+
+                const idArquivo = botao.getAttribute("data-arquivo");
+
+                inicio.style.display = "none";
+                secoesArquivos.forEach(secao => secao.style.display = "none");
+
+                const secaoSelecionada = document.getElementById(idArquivo);
+
+                if (secaoSelecionada) {
+
+                        secaoSelecionada.style.display = "flex";
+                        
+                }
+            });
+        });
+
+        const botoesVoltar = document.querySelectorAll(".btn-voltar");
+
+        botoesVoltar.forEach(btn => {
+            btn.addEventListener("click", () => {
+                inicio.style.display = "block";
+                secoesArquivos.forEach(secao => secao.style.display = "none");
+            });
+        });
+
+        //enigma
+
+        document.querySelectorAll('.verificar').forEach(botao => {
+    botao.addEventListener('click', () => {
+        const input = botao.previousElementSibling;
+        const respostasc = {
+            1: atob("MjozMg=="), // "2:32" MjozMg== PITTY FALSO PARAISO
+            2: atob("NTowOA=="), // "5:08" Traição 1
+            3: atob("Mzo1Mw=="), // 3:53
+            4: atob("NDowMA=="), // 4:00
+            5: atob("NTowMg=="), // 5:02
+            6: atob("MzoxMw=="), // 3:13
+        };
+
+        const enigmaid = parseInt(input.dataset.enigma);
+        console.log("ID do enigma:", enigmaid); // Para verificar o ID do enigma
+        const acerto = respostasc[enigmaid];
+        console.log("Resposta correta (decodificada):", acerto); // Verifica se a resposta está correta
+        const respostausuario = input.value.trim();
+        console.log("Resposta do usuário:", respostausuario); // Verifica a resposta do usuário
+
+        if(respostausuario === acerto){
+            const unlock = `arquivo${enigmaid + 2}`;
+            const menubtn = document.querySelector(
+                `.arquivo-btn[data-arquivo="${unlock}"]`
+            );
+        if(menubtn) menubtn.style.display = 'block';
+   
+
+            const noiseelement = document.querySelector('.noise');
+            noiseelement.classList.add('fade-animation');
+
+            setTimeout(() => {
+                noiseelement.classList.remove('fade-animation');
+
+            }, 5000);
+
+
+        } 
+    });
+});
+
+
+
+    
+    
+
+        
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
