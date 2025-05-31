@@ -15,9 +15,9 @@
 
 
 
-<style>
+    <style>
 
-        body {
+              body {
             margin: 0;
             height: 100vh;
             display: flex;
@@ -555,69 +555,7 @@
             }
         }
 
-          .sound-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .sound-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #2a1f33;
-            border: 2px solid #fd57ff;
-            color: #fd57ff;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: VT323, monospace;
-            font-size: 24px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(253, 87, 255, 0.3);
-        }
-
-        .sound-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(253, 87, 255, 0.5);
-        }
-
-        .sound-btn.muted {
-            background: #3d1a1a;
-            border-color: #ff5757;
-            color: #ff5757;
-            box-shadow: 0 0 10px rgba(255, 87, 87, 0.3);
-        }
-
-        .sound-btn.muted:hover {
-            box-shadow: 0 0 15px rgba(255, 87, 87, 0.5);
-        }
-
-        /* Demo styles */
-        body {
-            margin: 0;
-            background: #553f66;
-            font-family: VT323, monospace;
-            color: #fd57ff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .demo {
-            text-align: center;
-            padding: 20px;
-        }
-
-        audio {
-            margin: 20px;
-        }
-
     </style>
-
 
 </head>
     
@@ -629,13 +567,6 @@
         <img src="imgs/bezel.webp" id="bezel" class="noselect">
 
         <div id="content">
-
-                <!-- Widget de Som -->
-                <div class="sound-widget">
-                    <button class="sound-btn" id="soundToggle">
-                        🔊
-                    </button>
-                </div>
 
             <!-- tela de boot -->
 
@@ -722,7 +653,7 @@
 
             <section class="texto" id="arquivo1" style="display: none; align-items: center; justify-content: center;">
 
-                <div class="caixaincident">
+                <div style="margin-top: 55vh; padding-bottom: 10px;">
 
                     <img src="imgs/incident.webp" class="archiveimages">
                 </div>
@@ -1242,87 +1173,6 @@ window.addEventListener('beforeunload', () => {
     siteManager = null;
   }
 });
-
- class SimpleSoundWidget {
-            constructor() {
-                this.button = document.getElementById('soundToggle');
-                this.isMuted = false;
-                this.audioElements = [];
-                this.init();
-            }
-
-            init() {
-                // Solicitar permissão de áudio
-                this.requestAudioPermission();
-                
-                // Setup do botão
-                this.button.addEventListener('click', () => this.toggleSound());
-                
-                // Detectar elementos de áudio
-                this.detectAudioElements();
-            }
-
-            async requestAudioPermission() {
-                try {
-                    // Tentar reproduzir um áudio silencioso para obter permissão
-                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                    await audioContext.resume();
-                    console.log('Permissão de áudio concedida');
-                } catch (error) {
-                    console.log('Permissão de áudio negada ou não suportada');
-                }
-            }
-
-            detectAudioElements() {
-                // Encontrar todos os elementos de áudio na página
-                this.audioElements = document.querySelectorAll('audio, video');
-                
-                // Observer para novos elementos de áudio
-                const observer = new MutationObserver(() => {
-                    this.audioElements = document.querySelectorAll('audio, video');
-                });
-                
-                observer.observe(document.body, { 
-                    childList: true, 
-                    subtree: true 
-                });
-            }
-
-            toggleSound() {
-                this.isMuted = !this.isMuted;
-                
-                // Atualizar visual do botão
-                if (this.isMuted) {
-                    this.button.textContent = '🔇';
-                    this.button.classList.add('muted');
-                } else {
-                    this.button.textContent = '🔊';
-                    this.button.classList.remove('muted');
-                }
-
-                // Controlar todos os áudios
-                this.audioElements.forEach(audio => {
-                    audio.muted = this.isMuted;
-                });
-
-                // Salvar estado
-                localStorage.setItem('soundMuted', this.isMuted);
-            }
-
-            // Método para verificar estado salvo
-            checkSavedState() {
-                const savedState = localStorage.getItem('soundMuted');
-                if (savedState === 'true') {
-                    this.toggleSound();
-                }
-            }
-        }
-
-        // Inicializar quando a página carregar
-        document.addEventListener('DOMContentLoaded', () => {
-            const soundWidget = new SimpleSoundWidget();
-            soundWidget.checkSavedState();
-        });
     </script>
 
 </body>
