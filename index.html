@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="icon" href="imgs/Desespero.png" type="image/png">
 
-    <title>OBCE - Arquivo</title>
+    <title>Bem Vindo</title>
 
 
 
@@ -24,6 +25,21 @@
             align-items: center;     /* centraliza verticalmente */
             background-color: black; /* opcional: pra ficar bonito */
         }
+
+        .bootline {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            padding: 4px;
+            }
+            .bootline.visible {
+            opacity: 1;
+            transform: translateY(0);
+            }
+            .hidden {
+            display: none;
+            }
+
 
         .noise{
             position: absolute;
@@ -88,12 +104,14 @@
         .enigmatexto{
             display: flex;
             align-items: center;
+            flex-direction: column;
             justify-content: center;
-            width: auto;
-            height: auto;
-            margin-top: 10vh;
-            padding: 100px;
+            width: 600px;
+            height: 100vh;
+            /* margin-top: 10vh;
+            padding: 100px; */
             padding: 0;
+            gap: 10px;
         }
 
 
@@ -109,6 +127,7 @@
         .texto::-webkit-scrollbar-track {
             background-color: none;
         }
+
 
         .textosub:hover{
         background-color: transparent !important;
@@ -157,6 +176,11 @@
             border-radius: 0px;
             image-rendering: pixelated; 
         }
+
+        .hidden {
+  display: none;
+}
+
 
         .archivevideos{
             width: 800px;
@@ -229,6 +253,56 @@
             align-items: center;
             justify-content: flex-start;
         }
+        .boot{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: top;
+            height: 724px;
+            margin-top: 35px;
+            overflow: hidden;
+            padding: 10px 20px 10px 10px;
+        }
+
+        h2{
+            padding: 0;
+            margin: 0;
+        }
+
+        .rage-shaking {
+            display: inline-block;
+        }
+
+        .rage-shaking:hover {
+            animation: rage-shaking 0.5s infinite;
+        }
+
+        @keyframes rage-shaking {
+            0%   { transform: translate(1px, 1px) rotate(0deg); }
+            10%  { transform: translate(-1px, -2px) rotate(-1deg); }
+            20%  { transform: translate(-3px, 0px) rotate(1deg); }
+            30%  { transform: translate(3px, 2px) rotate(0deg); }
+            40%  { transform: translate(1px, -1px) rotate(1deg); }
+            50%  { transform: translate(-1px, 2px) rotate(-1deg); }
+            60%  { transform: translate(-3px, 1px) rotate(0deg); }
+            70%  { transform: translate(3px, 1px) rotate(-1deg); }
+            80%  { transform: translate(-1px, -1px) rotate(1deg); }
+            90%  { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .textoboot h1{
+            font-size: 30px;
+        }
+
+           .textoboot h2{
+            font-size: 25px;
+        }
+
+           .textoboot span{
+            font-size: 25px;
+        }
+     
 
     </style>
 
@@ -242,7 +316,45 @@
         <img src="imgs/bezel.png" id="bezel" class="noselect">
 
         <div id="content">
-            
+
+            <!-- tela de boot -->
+
+            <section class="boot tela" style="display: block;">
+
+
+
+                <section class="textoboot">
+                    <h1 class="bootline hidden" data-delay="3490">>> IBM Personal Computer</h1>
+                    <h1 class="bootline hidden" data-delay="3490">>> Copyright (C) IBM Corp. 1981-1993</h1>
+                    <h1 class="bootline hidden" data-delay="3490">>> Todos os direitos reservados</h1>
+
+                    <h2 class="bootline hidden" data-delay="5490" style="margin-top: 100px;">>> Adaptador de Vídeo VGA Detectado</h2>
+                    <h2 class="bootline hidden" data-delay="6090">>> Porta de teclado AT Detectada</h2>
+                    <h2 class="bootline hidden" data-delay="6690">>> Porta serial COM1 Detectada</h2>
+                    <h2 class="bootline hidden" data-delay="7490">>> Verificando Configuração do Sistema...</h2>
+                    <h2 class="bootline hidden" data-delay="9490">>> Carregando Configuração CMOS... OK</h2>
+                    <h2 class="bootline hidden" data-delay="11690">>> Buscando Disco Rígido...</h2>
+                    
+                    <div id="teste" class="bootline hidden" data-delay="12890" style="margin-top: 100px;">
+                        <h1 class="text">
+                        <span class="boottype"></span>
+                        </h1>
+                    </div>
+
+                    <audio id="bootaudio" autoplay >
+                        <source src="imgs/booting.mp3" type="audio/mpeg">
+                    </audio>
+
+                </section>
+            </section>
+
+            <section class="textoimg" style="display: none; align-items: center; justify-content: center; display: flex; padding: 0; margin: 0; height: 100vh;">
+
+                    <img src="imgs/logo.png" class="archiveimages" style="width: 200px; height: 200px;">
+
+            </section> 
+
+            <!-- tela menu  -->
 
             <section class="tela" id="inicio" style="display:block">
                 <img src="imgs/Desespero.png" id="simbolo" class="noselect">
@@ -257,6 +369,13 @@
                     </h1>
                 </div>
                 
+                <div id="auto-container" class="hidden" data-delay="10" style="margin-top: 100px;">
+  <h1 class="text">
+    <span class="auto-type"></span>
+  </h1>
+</div>
+
+
                 <section>
 
                     <h3 class="subcontent" id="arquivobtn">> Arquivos</h3>
@@ -278,23 +397,42 @@
 
             </section>
 
-            <section class="texto" id="arquivo1" style="display: none;">
+        
 
-                <div style="margin-bottom: 10px">
+
+            <section class="texto" id="arquivo1" style="display: none; align-items: center; justify-content: center;">
+
+                <div style="margin-top: 55vh; padding-bottom: 10px;">
 
                     <img src="imgs/incident.jpg" class="archiveimages">
-
                 </div>
+                
 
                 <h3 class="subcontent textosub" style="margin-left: 15px">
 
-                    14/05/2024 - A beautiful Sky<br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor scelerisque ligula in sodales. Maecenas vitae nunc magna. Cras facilisis posuere consequat. Phasellus gravida eleifend nibh, et aliquam dolor facilisis porttitor. Etiam ut neque nec dui finibus fringilla. Integer commodo enim a est semper viverra. Donec efficitur lobortis quam congue mollis. Nam porta pellentesque orci quis pretium. Quisque posuere pulvinar velit. Ut a nulla metus. Fusce vel porta lorem. Donec purus justo, interdum a dui et, rutrum venenatis elit.
+                    14/05/2025 - Editorial: A OBCE é um fracasso — e o céu rachado é a cicatriz que nos lembra disso todos os dias<br>
+                    Por Vírus<br>
+                    <br>
+                        Ah, a OBCE. Organização Brasileira Contra Exoterrorismo. Que belo nome pomposo pra um bando de incompetentes que não consegue manter nem o próprio quintal limpo, quem dirá proteger o mundo do paranormal. Desde que surgiu, se vende como a “última linha de defesa” entre nós e o sobrenatural. Pois bem. Se essa é nossa última linha, estamos todos condenados.
 
-                    Suspendisse posuere id arcu sit amet rutrum. Phasellus ac imperdiet turpis. Duis vel purus finibus, eleifend arcu ut, consectetur lectus. Quisque a massa eget enim placerat eleifend vel id magna. Morbi ultricies accumsan sapien et tempus. Curabitur vitae viverra ante. Integer at volutpat odio. Sed eu rutrum sapien, a eleifend massa. Nulla bibendum enim quis pellentesque finibus. Donec dolor nisi, volutpat vitae sem ut, efficitur consectetur diam.
-                    
+                        14 de maio de 2024. Um dia que entrou pra história — pelas piores razões possíveis. O mundo parou, o céu rachou, monstros desceram como chuva e a humanidade, mais uma vez, foi deixada à própria sorte. A tal “Unificação”, como chamaram essa catástrofe digna de filme de terror, foi o momento em que tudo desmoronou. Literalmente. O céu rachou como vidro estilhaçado, e dele começaram a brotar criaturas que nem seus piores pesadelos ousariam desenhar.
+
+                        Onde estava a OBCE? Ah, estavam lá. Com seus uniformes pretos, armas reluzentes e posturas de heróis de quadrinhos. Tentaram lutar? Tentaram. E então desistiram. Simples assim. Quando viram que não estavam dando conta, largaram tudo — e o mais revoltante: permitiram que a maníaca conhecida como Blood Mary prosseguisse com o ritual.
+
+                        Se seu filho morreu naquela noite, se sua casa foi engolida por uma sombra vinda do céu, se você vive com medo de dormir porque pode acordar com um demônio sussurrando no seu ouvido... agradeça à OBCE. Foi uma escolha. A liderança da organização, sob o comando da eternamente desastrosa Camila Lerone, decidiu que o ritual tinha que acontecer. Porque, segundo eles, “era o mal menor”. Pois é. A morte de milhares virou só uma estatística conveniente.
+
+                        Desde aquele dia maldito, de <span class="rage-shaking">7 em 7 horas</span> surge um novo caso paranormal sendo reportado ao redor do globo. De <span class="rage-shaking">7 em 7 minutos</span>, alguém morre por causa do desequilíbrio que eles deixaram acontecer. E de <span class="rage-shaking">7 em 7 dias</span>, aparece um novo “especialista da OBCE” tentando justificar o injustificável.
+
+                        Sabe o que mais acontece de <span class="rage-shaking">7 em 7?</span> Meu nojo pela OBCE cresce sete vezes. Eles falharam. Falharam com a humanidade. Falharam com o mundo. E o que fizeram depois? Conferência de imprensa, discurso pronto e pose pra foto. Enquanto isso, o céu continua rachado, visível pra qualquer um que tenha olhos. A lembrança constante do fracasso retumbante da OBCE.
+
+                        Camila Lerone ainda está no comando. Por quê? Porque aparentemente, nessa organização, quanto mais você erra, mais te promovem. Deveria estar sendo julgada por negligência paranormal em escala global, mas não. Segue dando ordens, cercada por um bando de puxa-sacos uniformizados que mais parecem figurantes de filme B.
+
+                        A OBCE não é solução. É o problema. Um parasita estatal que consome recursos, promete segurança e entrega caos. Devia ser extinta. Ponto. Dê esse dinheiro pra qualquer criança com um estilingue e ela fará mais pelo combate ao paranormal do que esses fracassados fizeram em anos.
+
+                        A OBCE nos traiu. E enquanto o céu continuar rachado, vamos continuar olhando pra cima e lembrando: o mundo caiu porque eles deixaram.
                 </h3>
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
+                
 
             </section>
 
@@ -304,19 +442,27 @@
 
                 <div class="enigmatexto">
 
-                    <img src="imgs/enigmas/traicao.png" class="enigmaimages2">
+                    <!-- <img src="imgs/enigmas/traicao.png" class="enigmaimages2"> -->
 
-                    <!-- <h3 class="subcontent textosub" style="padding-top: 10px;">
-                        - .-. - - - .- .. -.-. .- - - - - - - - --- --..-- / . ..- / - .. - - -. .... .- / - ..- -.. --- - - - - .- ... -.. -.-. -..- - - - - / -- .- - - - ... -.. - - - - - - - ... / .--. . .-. -.. - - - - - .. / .- .-.. --. ..- . -- / - - - - - - - - - - .--. --- .-. / --. .- -. . . .- -.. .- ... . .-- .- -..- -.-. --.. .- -. -.-. .. .- / -.. . / .- .-.. --. ..- . - - - - - - -- / --.- ..- . / -.-. --- -. - - - - - - - ... .. -.. . .-. - - - . .- .-- . .-- --.- . - - - - - . .. / -- . ..- / .. .-. -- .- --- .-.-.- . ... ... .- / --- .-. --. - - - - .- ... -.. - - - .- -. .. --.. - - - - .- -.-. .- - - - - - - --- / -- . / -.. . ..- / . ... .--. . .-. .- -. - - - --.. -..- -.-. --.. -..- - - - - - .- ... / .. -. - . .-. -. . --..-- / -- - - - - - - .- ... / .--. . .-. - - - - - --.- .-- . .-- --.- .-. - - - - - -.-. . - - - - - - -... .. / --.- ..- . / . - - - - ... - - - - - - .- ... -.. ... .- -.. - - - .--. . .-. - - - - --.- .-- . --.- .-- . --.- - - - - - - .- -. -.-. - - - - .-- . --.- . .-- --.- - - .- ... / - - - - - -. - - - - - - .- --- / . / -. --- / --- / ... .. --. -. - - - - -..- .- -.. ... ..-. .- - - - .. ..-. .. -.-. .- - - - -.. --- / -.. --- / . / -.. --- / --- - - - - - - -... -.-. . / .--. .- .-. .- .. - - - - - - ... .- . .-. .-- . - - - - ... --- - - - - - --..-- -- - - - - - - .- ... / --- / --- .-. --. ..- - - - - .-.. .... --- --..-- .--. --- - - - -.. . .- - - - - . --.- .-- . .-- --.- . --.- - - - - - - - . ... . .-.                    </h3> -->
+                    <h3 class="subcontent textosub" style="padding-top: 10px;">
+                        AAAAAAqAAAAAAA Ayhpjhv lb apuoh AAAAhAAAAA abkv thz wlykp hsnblt wvy
+                        nhuhujph AAAAAAAArAAAAA kl hsnblt xbl AAAlAAAAAAAAA jvuzpklylp tlb pythv
+                        AAAMAAAAAAA
+                        Lzzh AAAyAAAAAAAA vynhupghjhv AhAAAAAAAAAAAA tl klb AAAAAAAAAuAAAA
+                        lzwlyhujhz pualyul, thz AAAAjAAAAAAA wlyjlip xbl lzwlyhujh uãv é uv v
+                        AAAAAhAAAAAA zpnupmpjhkv AAAAAAAAAAA kv L kv AAAAAAAAAA VIJL whyhpzv
+                        AAAAAAAAAAAA thz v Vynbsov wvkl hal AAAAAAAAAAAAA zly
+                       </h3>
 
                     <!-- <video controls src="/imgs/enigma1.mp4" class="archiveimages archivevideos" autoplay muted loop></video> -->
+                
+              
+                    <input type="text" class="resposta" data-enigma="1">
+                    <button class="verificar">Enviar</button>
+
+                    <h3 class="subcontent btn-voltar">> Voltar </h3>
                 </div>
-
-                <input type="text" class="resposta" data-enigma="1">
-                <button class="verificar">Enviar</button>
-
-                <h3 class="subcontent btn-voltar">> Voltar </h3>
-
+                
             </section>
 
             <!--Arquivo 3 Orgulho  - Pais e filhos 5:08 -->
@@ -325,17 +471,17 @@
 
                 <div class="enigmatexto">
 
-                    <img src="imgs/enigmas/orgulho.png" class="enigmaimages2">
-
-                </div>
+                    <img src="imgs/banheiro.png" class="enigmaimages2">
+                
 
                 <input type="text" class="resposta" data-enigma="2">
                 <button class="verificar">Enviar</button>
 
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
 
-            </section>
+                </div>
 
+            </section>
             
             <!--Arquivo 4 Confianca the red means i love you 3:53-->
 
@@ -345,12 +491,14 @@
 
                     <img src="imgs/enigmas/confianca.png" class="enigmaimages2">
 
-                </div>
+                
 
                 <input type="text" class="resposta" data-enigma="3">
                 <button class="verificar">Enviar</button>
 
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+                </div>
 
             </section>
                         
@@ -360,14 +508,25 @@
 
                 <div class="enigmatexto">
 
-                    <img src="imgs/enigmas/confusao.png" class="enigmaimages2">
-
-                </div>
+                    <h3 class="subcontent textosub" style="padding-top: 10px;">
+                        JvumbzhvAAAgAAjylzjlyAAAAhAAzltAAAAAsltiyhyAAAjAAklAAAArAAAAavkhAAtAAA
+                        AAlbAAApAAAAAAAAAAbthAAAkAAAcpkhAAAsAAlAAAAlAAtlpvAAyAAAlunyhçhkvA
+                        AAAAAAzlAAAAzvbAAAAcvjêAAAAAlzxbljlyAAAAAxblAAAAAlAAAAAayánpjvAAAAAA
+                        AAAbkvAAAAAhAAAAAxblAAAAAAAlbAAAAAAklclyphAAAAAAAAtlAAAAAsltiyhyAAA
+                        AAAAAAAAuãvAAAAAAmpsohAAAAAtlAAAAAptwvyahAAAAAthpzAAAAAlbAAAAAq
+                        hAAAAAAAaluovAAAAAkvAAAAAAAhAAAAwhyalAAAAAxblAAAAAtlAAAAAmhsahAA
+                        AAALAAAAAypvAAAAAAAuãvAAAAAzlpAAAAAjvtvAAAAAcpcpAAAAAlzzlAAAAAaltw
+                        vAAAAAavkvAAAAAzltAAAAAlshAAAAAubujhAAAAAlzapclAAAAAjvtwslavAAAAAzlt
+                        wylAAAAAchgpvAAAAAzltwylAAAAAklwyptpkvAAAAAzltwylAAAAAOhyslfAAAAASva
+                        oly
+                    </h3>
 
                 <input type="text" class="resposta" data-enigma="4">
                 <button class="verificar">Enviar</button>
 
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+                </div>
 
             </section>
 
@@ -379,63 +538,71 @@
 
                     <img src="imgs/enigmas/tempo.png" class="enigmaimages2">
 
-                </div>
+                
 
                 <input type="text" class="resposta" data-enigma="5">
                 <button class="verificar">Enviar</button>
 
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
 
+                </div>
+
             </section>
 
             
-            <!--Arquivo 7 Confusao The water is fine 3:13-->
+            <!--Arquivo 7 Destino The water is fine 3:13-->
 
             <section class="texto" id="arquivo7" style="display: none;">
 
                 <div class="enigmatexto">
 
-                    <img src="imgs/enigmas/destino.png" class="enigmaimages2">
+                    <img src="imgs/casanaarvore.png" class="enigmaimages2">
 
-                </div>
+                
 
                 <input type="text" class="resposta" data-enigma="6">
                 <button class="verificar">Enviar</button>
 
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
 
+                </div>
+
             </section>
 
-             <!--Arquivo 8 Confusao The water is fine 3:13-->
+             <!--Arquivo 8 WHO IS WITH YOU? The water is fine 3:13-->
 
              
             <section class="texto" id="arquivo8" style="display: none; align-items: center; justify-content: center;">
 
                 <div class="enigmatexto">
 
-                    <h1 class="subcontent textosub">Quem está com você?</h1>
+                    <h1 class="subcontent textosub">Quem está com você, Malick?</h1>
 
-                </div>
+                
 
                 <input type="text" class="resposta" data-enigma="8">
                 <button class="verificar">Enviar</button>
 
                 <h3 class="subcontent btn-voltar">> Voltar </h3>
 
+                </div>
+
             </section>
 
-                         <!--Arquivo 9 Confusao The water is fine 3:13-->
+                         <!--Arquivo 9 Parabens  3:13-->
 
              
                          <section class="texto" id="arquivo9" style="display: none; align-items: center; justify-content: center;">
 
                             <div class="enigmatexto">
                                 <h1 class="subcontent textosub">Parabéns!</h1>
-                            </div>
+                            
                             <h2>
                                 A gente se vê em breve
                             </h2>
                             <h3 class="subcontent btn-voltar">> Voltar </h3>
+
+                            </div>
             
             </section>
             
@@ -448,14 +615,21 @@
 
     <script>
 
+        
+
+        
+
         //autotype
 
-        var typed = new Typed(".auto-type",{
-            strings : [" Bem vinda, Virús.", "Bem vinda, Anfitriã."],
-            typeSpeed: 125,
-            backSpeed: 125,
+        // var typed = new Typed(".auto-type",{
+        //     strings : [" Bem vinda, Virús.", "Bem vinda, Anfitriã."],
+        //     typeSpeed: 125,
+        //     backSpeed: 125,
             
-        })
+        // })
+        
+        // //autotype boot
+
 
         //menu
 
@@ -547,19 +721,56 @@
     });
 });
 
+// tela delay
 
 
+document.querySelectorAll('.bootline').forEach((el) => {
+  const delay = parseInt(el.getAttribute('data-delay'), 10);
+  setTimeout(() => {
+    el.classList.remove('hidden');
+    el.classList.add('visible');
+  }, delay);
+});
 
-    
-    
-
-        
-
-
-
-
+        var typed = new Typed(".boottype",{
+            strings : ["Loading", "Iniciando sistema operacional..."],
+            typeSpeed: 125,
+            backSpeed: 125,
+            
+        })
 
 
+window.addEventListener('load', () => {
+  const audio = document.getElementById('bootaudio');
+  setTimeout(() => {
+    audio.muted = false;
+    audio.volume = 1.0;
+  }, 1000);
+
+  const lastdelay = parseInt(document.querySelector('#teste').dataset.delay) || 2000;
+
+  // Passo 1: espera o boot (tempo do data-delay)
+  setTimeout(() => {
+    document.querySelector(".boot.tela").style.display = "none";
+    document.querySelector(".textoimg").style.display = "flex";
+
+    // Passo 2: espera 2s depois de boot terminar
+    setTimeout(() => {
+      document.querySelector(".textoimg").style.display = "none";
+      document.querySelector("#inicio").style.display = "block";
+
+      // Inicializa o Typed
+      new Typed(".auto-type", {
+        strings: [" Bem vinda, Virús.", "Bem vinda, Anfitriã."],
+        typeSpeed: 125,
+        backSpeed: 125,
+      });
+    }, 1000); // 1s depois de mostrar .textoimg
+
+  }, lastdelay + 2000); // espera boot + 2s para mostrar textoimg
+});
+
+  
     </script>
 
 </body>
