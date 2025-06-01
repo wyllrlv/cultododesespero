@@ -149,17 +149,14 @@
             font-family: VT323;
             padding: 60px;
             padding-top: 20px;
-            padding-bottom: 0px;
-            padding-bottom: 50px !important;
             margin-left: 10px;
             color: #fd57ff;
             font-size: 20px;
-            text-shadow: 
-            1px 1px 2px #070107,
-            0 0 10px #fd57ff,
-            0 0 20px #fd57ff,
-            0 0 40px #a100c1,
-            0 0 80px #a100c1;
+            text-shadow:
+              0 0 2px #070107,     /* contorno escuro leve */
+              0 0 6px #fd57ff,      /* brilho rosa suave */
+              0 0 12px #fd57ff,     /* brilho rosa médio */
+              0 0 16px #a100c1;     /* brilho roxo final */
             z-index: 1;
         
         }
@@ -213,11 +210,10 @@
             height: 150px;
             width: 150px;
             filter:
-            drop-shadow(1px 1px 2px #070107)
-            drop-shadow(0 0 10px #fd57ff)
-            drop-shadow(0 0 20px #fd57ff)
-            drop-shadow(0 0 40px #a100c1)
-            drop-shadow(0 0 80px #a100c1);
+            drop-shadow(0 0 2px #070107)
+            drop-shadow(0 0 6px #fd57ff)
+            drop-shadow(0 0 12px #fd57ff)
+            drop-shadow(0 0 16px #a100c1);
             pointer-events: none;
         }
 
@@ -261,11 +257,9 @@
             width: 850px !important;
             height: auto !important;
             filter:
-            drop-shadow(1px 1px 10px #070107)
-            drop-shadow(0 0 10px #fd57ff)
-            drop-shadow(0 0 10px #fd57ff)
-            drop-shadow(0 0 20px #a100c1)
-            drop-shadow(0 0 40px #a100c1);
+            drop-shadow(0 0 4px #070107)
+            drop-shadow(0 0 8px #fd57ff)
+            drop-shadow(0 0 16px #a100c1);
             padding: 25px;
             overflow: hid;
         }
