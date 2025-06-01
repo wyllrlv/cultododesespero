@@ -41,7 +41,7 @@
             }
 
 
-        .noise{
+        /* .noise{
             position: absolute;
             width: 100%;
             height: 100%;
@@ -50,7 +50,18 @@
             opacity: 3%;
             z-index: 2;
             pointer-events: none;
-        }
+        } */
+
+        .noise {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.03;
+    z-index: 2;
+    pointer-events: none;
+}
+
 
         @keyframes fadeeffect {
             0%, 100% {
@@ -562,7 +573,12 @@
 <body>
 
     <div id="tela">
-        <img src="https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif" class="noise noselect">
+        <!-- <img src="https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif" class="noise noselect"> -->
+        <!-- <video src="imgs/noise.webm" class="noise noselect" autoplay loop muted playsinline> -->
+          <video autoplay loop muted playsinline class="noise">
+          <source src="imgs/noise.webm" type="video/webm">
+          </video>
+
         <img src="imgs/scanlines.webp" id="scanlines" class="noselect">
         <img src="imgs/bezel.webp" id="bezel" class="noselect">
 
