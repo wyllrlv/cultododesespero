@@ -106,8 +106,8 @@
             display: none;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            height: 724px;
+            justify-content: center;
+            height: calc(100vh - 90px);
             overflow-y: auto;
             padding: 10px 20px 10px 10px;
             margin-top: 10px;
@@ -610,7 +610,7 @@
                 </section>
             </section>
 
-            <section class="textoimg" style="display: none; align-items: center; justify-content: center; display: flex; padding: 0; margin: 0; height: 100vh;">
+            <section class="textoimg" style="display: none; align-items: center; justify-content: center; display: flex; padding: 0; margin: 0; height: calc(100vh - 90px);">
 
                     <img src="imgs/logo.webp" class="archiveimages" style="width: 200px; height: 200px;">
 
@@ -621,9 +621,7 @@
             <section class="tela" id="inicio" style="display:block">
                 <img src="imgs/Desespero.webp" id="simbolo" class="noselect">
 
-                <h1>
-                    20/04/2025
-                </h1>
+                <h1 id="data-hoje"></h1>
 
                 <div id="teste">
                     <h1 class="text">
@@ -664,9 +662,8 @@
 
             <section class="texto" id="arquivo1" style="display: none; align-items: center; justify-content: center;">
 
-                <div style="margin-top: 55vh; padding-bottom: 10px;">
-
-                    <img src="imgs/incident.webp" class="archiveimages">
+                <div >
+                    <img src="imgs/incident.webp" class="archiveimages" style="margin-top: min(800px, max(600px, 15vh));">
                 </div>
                 
 
@@ -888,6 +885,10 @@
 // - Uso de Map para melhor performance
 // - Lazy loading de animações
 // - Remoção de queries desnecessárias
+
+  const hoje = new Date();
+  const opcoes = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  document.getElementById("data-hoje").textContent = hoje.toLocaleDateString('pt-BR', opcoes);
 
 class SiteManager {
   constructor() {
