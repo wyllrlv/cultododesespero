@@ -621,7 +621,7 @@
             <section class="tela" id="inicio" style="display:block">
                 <img src="imgs/Desespero.webp" id="simbolo" class="noselect">
 
-                <h1 id="data-hoje"></h1>
+                <h1>28/10/2045</h1>
 
                 <div id="teste">
                     <h1 class="text">
@@ -669,12 +669,12 @@
 
                 <h3 class="subcontent textosub" style="margin-left: 15px; padding-top: 25px;">
 
-                    14/05/2025 - Editorial: A OBCE é um fracasso — e o céu rachado é a cicatriz que nos lembra disso todos os dias<br>
+                    14/05/2045 - Editorial: A OBCE é um fracasso — e o céu rachado é a cicatriz que nos lembra disso todos os dias<br>
                     Por Vírus<br>
                     <br>
                         Ah, a OBCE. Organização Brasileira Contra Exoterrorismo. Que belo nome pomposo pra um bando de incompetentes que não consegue manter nem o próprio quintal limpo, quem dirá proteger o mundo do paranormal. Desde que surgiu, se vende como a “última linha de defesa” entre nós e o sobrenatural. Pois bem. Se essa é nossa última linha, estamos todos condenados.
 
-                        14 de maio de 2024. Um dia que entrou pra história — pelas piores razões possíveis. O mundo parou, o céu rachou, monstros desceram como chuva e a humanidade, mais uma vez, foi deixada à própria sorte. A tal “Unificação”, como chamaram essa catástrofe digna de filme de terror, foi o momento em que tudo desmoronou. Literalmente. O céu rachou como vidro estilhaçado, e dele começaram a brotar criaturas que nem seus piores pesadelos ousariam desenhar.
+                        14 de maio de 2023. Um dia que entrou pra história — pelas piores razões possíveis. O mundo parou, o céu rachou, monstros desceram como chuva e a humanidade, mais uma vez, foi deixada à própria sorte. A tal “Unificação”, como chamaram essa catástrofe digna de filme de terror, foi o momento em que tudo desmoronou. Literalmente. O céu rachou como vidro estilhaçado, e dele começaram a brotar criaturas que nem seus piores pesadelos ousariam desenhar.
 
                         Onde estava a OBCE? Ah, estavam lá. Com seus uniformes pretos, armas reluzentes e posturas de heróis de quadrinhos. Tentaram lutar? Tentaram. E então desistiram. Simples assim. Quando viram que não estavam dando conta, largaram tudo — e o mais revoltante: permitiram que a maníaca conhecida como Blood Mary prosseguisse com o ritual.
 
@@ -695,7 +695,7 @@
 
             </section>
 
-        <!--Arquivo 2 Traição - I wanna be 2:32-->
+
             
             <section class="texto" id="arquivo2" style="display: none;">
 
@@ -724,7 +724,7 @@
                 
             </section>
 
-            <!--Arquivo 3 Orgulho  - Pais e filhos 5:08 -->
+     
 
             <section class="texto" id="arquivo3" style="display: none;">
 
@@ -742,7 +742,7 @@
 
             </section>
             
-            <!--Arquivo 4 Confianca the red means i love you 3:53-->
+           
 
             <section class="texto" id="arquivo4" style="display: none;">
 
@@ -761,7 +761,7 @@
 
             </section>
                         
-            <!--Arquivo 5 Confusao The water is fine 4:00-->
+      
 
             <section class="texto" id="arquivo5" style="display: none;">
 
@@ -789,7 +789,7 @@
 
             </section>
 
-            <!--Arquivo 6 Tempo Perdido 5:02-->
+
 
             <section class="texto" id="arquivo6" style="display: none;">
 
@@ -808,8 +808,7 @@
 
             </section>
 
-            
-            <!--Arquivo 7 Destino The water is fine 3:13-->
+
 
             <section class="texto" id="arquivo7" style="display: none;">
 
@@ -828,7 +827,7 @@
 
             </section>
 
-             <!--Arquivo 8 WHO IS WITH YOU? The water is fine 3:13-->
+
 
              
             <section class="texto" id="arquivo8" style="display: none; align-items: center; justify-content: center;">
@@ -848,7 +847,7 @@
 
             </section>
 
-                         <!--Arquivo 9 Parabens  3:13-->
+
 
              
                          <section class="texto" id="arquivo9" style="display: none; align-items: center; justify-content: center;">
@@ -886,9 +885,6 @@
 // - Lazy loading de animações
 // - Remoção de queries desnecessárias
 
-  const hoje = new Date();
-  const opcoes = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  document.getElementById("data-hoje").textContent = hoje.toLocaleDateString('pt-BR', opcoes);
 
 class SiteManager {
   constructor() {
@@ -912,12 +908,12 @@ class SiteManager {
 
     // Cache das respostas do enigma usando Map para melhor performance
     this.respostasCodificadas = new Map([
-      [1, atob("MjozMg==")], // "2:32"
-      [2, atob("NTowOA==")], // "5:08"
-      [3, atob("Mzo1Mw==")], // "3:53"
-      [4, atob("NDowMA==")], // "4:00"
-      [5, atob("NTowMg==")], // "5:02"
-      [6, atob("MzoxMw==")]  // "3:13"
+      [1, atob("MjozMg==")], 
+      [2, atob("NTowOA==")], 
+      [3, atob("Mzo1Mw==")], 
+      [4, atob("NDowMA==")], 
+      [5, atob("NTowMg==")], 
+      [6, atob("MzoxMw==")]  
     ]);
 
     this.nomesAceitos = new Set(["jake", "rafael", "marku", "lother", "xande"]);
